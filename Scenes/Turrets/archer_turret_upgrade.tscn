@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dnhabg6so3ktv" path="res://Scripts/Turrets/Turret_upgrading/archer_turret_upgrade_area.gd" id="2_xkyyi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xkyyi"]
-size = Vector2(50, 37)
+size = Vector2(105, 86)
 
 [node name="Archer_turret_upgrade" type="Node2D"]
 
@@ -17,7 +17,7 @@ texture = ExtResource("1_ltnk4")
 script = ExtResource("2_xkyyi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Archer_turret_upgrade_area"]
-position = Vector2(4, -6.5)
+position = Vector2(31.5, -31)
 shape = SubResource("RectangleShape2D_xkyyi")
 
 [connection signal="mouse_entered" from="Archer_turret_upgrade_area" to="Archer_turret_upgrade_area" method="_on_mouse_entered"]
