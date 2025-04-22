@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6bl10x4otm3h"]
+
+[ext_resource type="Texture2D" uid="uid://comlp2lptrncd" path="res://Sprites/Projectiles/Tower_defense_magic_proj_psd.png" id="1_01f0g"]
+[ext_resource type="Script" uid="uid://qatn4t8fvqm6" path="res://Scripts/Projectiles/magic_proj_area.gd" id="1_brorg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01f0g"]
+
+[node name="Magic_proj_area" type="Area2D" groups=["Magic"]]
+script = ExtResource("1_brorg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_01f0g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-89, 70)
+scale = Vector2(0.273148, 0.273148)
+texture = ExtResource("1_01f0g")

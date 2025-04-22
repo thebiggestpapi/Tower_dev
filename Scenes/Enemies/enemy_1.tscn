@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://hmbjvxlb3pj2"]
+
+[ext_resource type="Script" uid="uid://c346jkb7i44ko" path="res://Scripts/Enemies/enemy_1.gd" id="1_8rwmy"]
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_jwqgc"]
+[ext_resource type="Script" uid="uid://btfd2ynn1diej" path="res://Scripts/Enemies/enemy1_area.gd" id="3_kvx5w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8rwmy"]
+radius = 88.0227
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rwmy"]
+size = Vector2(50, 86)
+
+[node name="Enemy1" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+script = ExtResource("1_8rwmy")
+
+[node name="Enemy1_sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -52)
+texture = ExtResource("1_jwqgc")
+flip_v = true
+
+[node name="Enemy1_area" type="Area2D" parent="." groups=["Enemy"]]
+script = ExtResource("3_kvx5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy1_area"]
+position = Vector2(0, -52)
+shape = SubResource("CircleShape2D_8rwmy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(15, -33)
+shape = SubResource("RectangleShape2D_8rwmy")
+
+[node name="Enemy1_attack_cd" type="Timer" parent="."]
+
+[connection signal="area_entered" from="Enemy1_area" to="Enemy1_area" method="_on_area_entered"]
+[connection signal="timeout" from="Enemy1_attack_cd" to="Enemy1_area" method="_on_enemy_1_attack_cd_timeout"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjgweajwr0kqy"]
+
+[ext_resource type="Script" uid="uid://csmm2j5ukavh3" path="res://Scripts/Projectiles/railgun_proj_area.gd" id="1_6mbfb"]
+[ext_resource type="Texture2D" uid="uid://cw6bapo42p3op" path="res://Sprites/Projectiles/Tower_defense_railgun_proj_psd.png" id="1_f4x6d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f4x6d"]
+
+[node name="Railgun_proj_area" type="Area2D" groups=["Railgun"]]
+script = ExtResource("1_6mbfb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f4x6d")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(26, -46)
+rotation = -4.06836
+scale = Vector2(0.229689, 0.229689)
+texture = ExtResource("1_f4x6d")

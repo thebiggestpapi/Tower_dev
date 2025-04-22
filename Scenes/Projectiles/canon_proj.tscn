@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlt5pb6rsngtu"]
+
+[ext_resource type="Texture2D" uid="uid://d655a6a3150r" path="res://Sprites/Projectiles/Tower_defense_cannon_proj_psd.png" id="1_8wj4e"]
+[ext_resource type="Script" uid="uid://c7crorgcei5mr" path="res://Scripts/Projectiles/canon_proj_area.gd" id="1_kgyuc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8wj4e"]
+
+[node name="Canon_proj_area" type="Area2D" groups=["Canon"]]
+script = ExtResource("1_kgyuc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8wj4e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-3, -76)
+scale = Vector2(0.224306, 0.224306)
+texture = ExtResource("1_8wj4e")

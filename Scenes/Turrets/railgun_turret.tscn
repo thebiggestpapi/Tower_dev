@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0cjvbw0jgct"]
+
+[ext_resource type="Texture2D" uid="uid://b17ar735ywqdj" path="res://Sprites/Turrets/Tower_defense_'railgun_psd.png" id="1_upq88"]
+[ext_resource type="Script" uid="uid://cy8bc85u808de" path="res://Scripts/Turrets/railgun_turret_area.gd" id="2_k2o6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_upq88"]
+size = Vector2(867.353, 267.059)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k2o6b"]
+radius = 69.1158
+
+[node name="Railgun_turret" type="Node2D"]
+
+[node name="Railgun_turret_sprite" type="Sprite2D" parent="."]
+position = Vector2(-22, -30)
+rotation = 1.67552
+scale = Vector2(0.206481, 0.206481)
+texture = ExtResource("1_upq88")
+
+[node name="Railgun_turret_area" type="Area2D" parent="."]
+script = ExtResource("2_k2o6b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Railgun_turret_area"]
+position = Vector2(-32.75, 208)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_upq88")
+
+[node name="Railgun_shoot_cd" type="Timer" parent="."]
+
+[node name="Railgun_turret_UI" type="Area2D" parent="."]
+position = Vector2(29, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Railgun_turret_UI"]
+position = Vector2(-8, -22)
+shape = SubResource("CircleShape2D_k2o6b")
+
+[connection signal="area_entered" from="Railgun_turret_area" to="Railgun_turret_area" method="_on_area_entered"]
+[connection signal="area_exited" from="Railgun_turret_area" to="Railgun_turret_area" method="_on_area_exited"]
+[connection signal="timeout" from="Railgun_shoot_cd" to="Railgun_turret_area" method="_on_railgun_shoot_cd_timeout"]

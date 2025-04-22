@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://co4e8xex2pthg"]
+
+[ext_resource type="Texture2D" uid="uid://dsrxlb8s151gj" path="res://Sprites/Turrets/Tower_defense_archer_psd.png" id="1_hyh6d"]
+[ext_resource type="Script" uid="uid://cydnrtn76cnnt" path="res://Scripts/Turrets/archer_turret_area.gd" id="2_hyh6d"]
+[ext_resource type="Script" uid="uid://dn8khqi5mhnp0" path="res://Scripts/Turrets/Turret_upgrading/archer_turret_ui.gd" id="3_3on6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hyh6d"]
+size = Vector2(890, 334.118)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hyh6d"]
+radius = 69.1158
+
+[node name="Archer_turret" type="Node2D"]
+
+[node name="Archer_turret_sprite" type="Sprite2D" parent="."]
+position = Vector2(-19, -113)
+rotation = -2.03505
+scale = Vector2(0.162755, 0.162755)
+texture = ExtResource("1_hyh6d")
+
+[node name="Archer_turret_area" type="Area2D" parent="."]
+position = Vector2(-186, 153)
+script = ExtResource("2_hyh6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Archer_turret_area"]
+position = Vector2(236.5, 131)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_hyh6d")
+
+[node name="Arrow_shoot_cd" type="Timer" parent="."]
+
+[node name="Archer_turret_UI" type="Area2D" parent="."]
+script = ExtResource("3_3on6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Archer_turret_UI"]
+position = Vector2(-8, -22)
+shape = SubResource("CircleShape2D_hyh6d")
+
+[connection signal="area_entered" from="Archer_turret_area" to="Archer_turret_area" method="_on_area_entered"]
+[connection signal="area_exited" from="Archer_turret_area" to="Archer_turret_area" method="_on_area_exited"]
+[connection signal="timeout" from="Arrow_shoot_cd" to="Archer_turret_area" method="_on_arrow_shoot_cd_timeout"]

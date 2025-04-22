@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2mnnavogut7o"]
+
+[ext_resource type="Texture2D" uid="uid://cvfw2htnvkv4y" path="res://Sprites/Turrets/Tower_defense_assets_cannon.png" id="1_qjsaa"]
+[ext_resource type="Script" uid="uid://10jfoobihk3t" path="res://Scripts/Turrets/canon_turret_area.gd" id="2_4tuuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjsaa"]
+size = Vector2(791.176, 389.412)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4tuuk"]
+radius = 69.1158
+
+[node name="Canon_turret" type="Node2D"]
+
+[node name="Canon_turret_sprite" type="Sprite2D" parent="."]
+position = Vector2(-8, -3)
+rotation = 1.07687
+scale = Vector2(0.156015, 0.156015)
+texture = ExtResource("1_qjsaa")
+
+[node name="Canon_turret_area" type="Area2D" parent="."]
+script = ExtResource("2_4tuuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canon_turret_area"]
+position = Vector2(-71.5002, 321)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_qjsaa")
+
+[node name="Canon_shoot_cd" type="Timer" parent="."]
+
+[node name="Canon_turret_UI" type="Area2D" parent="."]
+position = Vector2(12, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canon_turret_UI"]
+position = Vector2(-8, -22)
+shape = SubResource("CircleShape2D_4tuuk")
+
+[connection signal="area_entered" from="Canon_turret_area" to="Canon_turret_area" method="_on_area_entered"]
+[connection signal="area_exited" from="Canon_turret_area" to="Canon_turret_area" method="_on_area_exited"]
+[connection signal="timeout" from="Canon_shoot_cd" to="Canon_turret_area" method="_on_canon_shoot_cd_timeout"]

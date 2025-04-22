@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2dotfb1ia4nh"]
+
+[ext_resource type="Texture2D" uid="uid://3fj5ntht8a0i" path="res://Sprites/Turrets/Tower_defense_magic_psd.png" id="1_nub7y"]
+[ext_resource type="Script" uid="uid://chdj62d8ce5py" path="res://Scripts/Turrets/magic_turret_area.gd" id="2_8lk0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nub7y"]
+size = Vector2(797.647, 270)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lk0f"]
+radius = 69.1158
+
+[node name="Magic_turret" type="Node2D"]
+
+[node name="Magic_turret_sprite" type="Sprite2D" parent="."]
+position = Vector2(5, -49)
+scale = Vector2(0.178241, 0.178241)
+texture = ExtResource("1_nub7y")
+
+[node name="Magic_turret_area" type="Area2D" parent="."]
+script = ExtResource("2_8lk0f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magic_turret_area"]
+position = Vector2(3.99998, 138.5)
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_nub7y")
+
+[node name="Magic_shoot_cd" type="Timer" parent="."]
+
+[node name="Magic_turret_UI" type="Area2D" parent="."]
+position = Vector2(12, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magic_turret_UI"]
+position = Vector2(-8, -22)
+shape = SubResource("CircleShape2D_8lk0f")
+
+[connection signal="area_entered" from="Magic_turret_area" to="Magic_turret_area" method="_on_area_entered"]
+[connection signal="area_exited" from="Magic_turret_area" to="Magic_turret_area" method="_on_area_exited"]
+[connection signal="timeout" from="Magic_shoot_cd" to="Magic_turret_area" method="_on_magic_shoot_cd_timeout"]

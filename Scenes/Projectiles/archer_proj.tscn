@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://novdvul6agov"]
+
+[ext_resource type="Script" uid="uid://cwgwi224cof6f" path="res://Scripts/Projectiles/archer_proj_area.gd" id="1_46k8u"]
+[ext_resource type="Texture2D" uid="uid://b2i2lh0e4vx3u" path="res://Sprites/Projectiles/Tower_defense_archer_proj_psd.png" id="1_to6jp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46k8u"]
+radius = 6.0
+
+[node name="Archer_proj_area" type="Area2D" groups=["Arrow"]]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_46k8u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46k8u")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17, -23)
+rotation = -2.87281
+scale = Vector2(0.10463, 0.10463)
+texture = ExtResource("1_to6jp")

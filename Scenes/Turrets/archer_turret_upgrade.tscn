@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://btfkr7onuf51s"]
+
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_ltnk4"]
+[ext_resource type="Script" uid="uid://dnhabg6so3ktv" path="res://Scripts/Turrets/Turret_upgrading/archer_turret_upgrade_area.gd" id="2_xkyyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkyyi"]
+size = Vector2(50, 37)
+
+[node name="Archer_turret_upgrade" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.5, -6.59659)
+scale = Vector2(0.382812, 0.282759)
+texture = ExtResource("1_ltnk4")
+
+[node name="Archer_turret_upgrade_area" type="Area2D" parent="."]
+script = ExtResource("2_xkyyi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Archer_turret_upgrade_area"]
+position = Vector2(4, -6.5)
+shape = SubResource("RectangleShape2D_xkyyi")
+
+[connection signal="mouse_entered" from="Archer_turret_upgrade_area" to="Archer_turret_upgrade_area" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Archer_turret_upgrade_area" to="Archer_turret_upgrade_area" method="_on_mouse_exited"]

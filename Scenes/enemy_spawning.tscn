@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1v673kby0366"]
+
+[ext_resource type="Script" uid="uid://dw3wmgwk1ksqo" path="res://Scripts/enemy_spawning.gd" id="1_c87fy"]
+
+[node name="Enemy_spawning" type="Node2D"]
+script = ExtResource("1_c87fy")
+
+[node name="Wave_timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Wave_timer" to="." method="_on_wave_timer_timeout"]
