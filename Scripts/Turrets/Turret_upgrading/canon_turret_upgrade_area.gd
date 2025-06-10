@@ -6,6 +6,7 @@ var canon_damage: float = 6
 
 func _on_mouse_entered() -> void:
 	clickable = true
+	Input.set_default_cursor_shape(2)
 
 func _process(delta: float) -> void:
 	if clickable:
@@ -15,6 +16,7 @@ func _process(delta: float) -> void:
 
 func _on_mouse_exited() -> void:
 	clickable = false
+	Input.set_default_cursor_shape(0)
 
 func upgrade_turret():
 	var get_canon_cd = get_tree().root.get_node(

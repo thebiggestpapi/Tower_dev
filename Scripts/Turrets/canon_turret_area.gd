@@ -26,7 +26,6 @@ func _on_area_exited(area: Area2D) -> void:
 func assign_order(area):
 	if enemy_prio_order.size() > 0 and is_instance_valid(enemy_prio_order[0]):
 		current_target = enemy_prio_order[0]
-		current_target.is_shootable_canon = true
 	else:
 		current_target = null
 	enemy_prio_order.append(area)
@@ -48,6 +47,5 @@ func enemy_killed(area):
 	enemy_prio_order.pop_front()
 	if enemy_prio_order.size() > 0 and is_instance_valid(enemy_prio_order[0]):
 		current_target = enemy_prio_order[0]
-		current_target.is_shootable_canon = true
 	else:
 		return

@@ -18,8 +18,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		global_position = global_position.move_toward(
 			last_known_position, magic_speed * delta)
-	arrow_destroyed()
+	magic_destroyed()
 
-func arrow_destroyed():
+func magic_destroyed():
 	if global_position.is_equal_approx(last_known_position):
 		self.queue_free()

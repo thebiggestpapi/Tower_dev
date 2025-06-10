@@ -1,8 +1,9 @@
 extends Area2D
-
 @onready var get_turret_upgr = get_tree().root.get_node(
 "Main/Turrets/Canon_turret/Canon_turret_upgrade/Canon_turret_upgrade_area")
 @onready var canon_speed = get_turret_upgr.canon_speed
+var canon_explosion = preload("res://Scenes/Projectiles/canon_proj_explosion.tscn")
+@onready var projectiles = get_tree().get_root().get_node("Main/Projectiles")
 
 var last_known_position: Vector2
 var target: Area2D
@@ -18,8 +19,16 @@ func _physics_process(delta: float) -> void:
 	else:
 		global_position = global_position.move_toward(
 			last_known_position, canon_speed * delta)
-	arrow_destroyed()
+	explosion(last_known_position)
+	canon_destroyed()
 
-func arrow_destroyed():
+func canon_destroyed():
 	if global_position.is_equal_approx(last_known_position):
 		self.queue_free()
+
+func explosion(last_known_position):
+	if global_position.is_equal_approx(last_known_position):
+		var explosion_instance = canon_explosion.instantiate()
+		projectiles.add_child(explosion_instance)
+		explosion_instance.global_position = last_known_position
+		projectiles.remove_child(explosion_instance)

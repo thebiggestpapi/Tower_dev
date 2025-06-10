@@ -4,8 +4,6 @@ extends Area2D
 @export var HEALTH = 15
 @onready var is_shootable_archer = false
 @onready var is_shootable_railgun = false
-@onready var is_shootable_magic = false
-@onready var is_shootable_canon = false
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Tower_area"):
@@ -15,9 +13,9 @@ func _on_area_entered(area: Area2D) -> void:
 		get_hit_arrow()
 	elif area.is_in_group("Railgun") and is_instance_valid(area) and is_shootable_railgun:
 		get_hit_railgun()
-	elif area.is_in_group("Magic") and is_instance_valid(area) and is_shootable_magic:
+	elif area.is_in_group("Magic") and is_instance_valid(area):
 		get_hit_magic()
-	elif area.is_in_group("Canon") and is_instance_valid(area) and is_shootable_canon:
+	elif area.is_in_group("Canon_explosion") and is_instance_valid(area):
 		get_hit_canon()
 
 func get_hit_arrow():

@@ -6,6 +6,6 @@
 script = ExtResource("1_c87fy")
 
 [node name="Wave_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 2.0
 
 [connection signal="timeout" from="Wave_timer" to="." method="_on_wave_timer_timeout"]
