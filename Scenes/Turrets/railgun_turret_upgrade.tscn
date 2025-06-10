@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq55v0w2tkl5y"]
+
+[ext_resource type="Script" uid="uid://w0vi0i24b2dr" path="res://Scripts/Turrets/Turret_upgrading/railgun_turret_upgrade_area.gd" id="1_e4hpg"]
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_mfvop"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpimg"]
+size = Vector2(33, 29)
+
+[node name="Railgun_turret_upgrade" type="Node2D"]
+position = Vector2(33, -77)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6.25, -4.75)
+scale = Vector2(0.261719, 0.238281)
+texture = ExtResource("1_mfvop")
+
+[node name="Railgun_turret_upgrade_area" type="Area2D" parent="."]
+script = ExtResource("1_e4hpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Railgun_turret_upgrade_area"]
+position = Vector2(6.5, -4.5)
+shape = SubResource("RectangleShape2D_cpimg")
+
+[connection signal="mouse_entered" from="Railgun_turret_upgrade_area" to="Railgun_turret_upgrade_area" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Railgun_turret_upgrade_area" to="Railgun_turret_upgrade_area" method="_on_mouse_exited"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmkb3plif5wcm"]
+
+[ext_resource type="Script" uid="uid://wrjjjycujapq" path="res://Scripts/Turrets/Turret_upgrading/canon_turret_upgrade_area.gd" id="1_m33ik"]
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_thgyj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pu4rq"]
+size = Vector2(46, 43)
+
+[node name="Canon_turret_upgrade" type="Node2D"]
+position = Vector2(-3, -51)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, -10.5)
+scale = Vector2(0.40625, 0.382813)
+texture = ExtResource("1_thgyj")
+
+[node name="Canon_turret_upgrade_area" type="Area2D" parent="."]
+script = ExtResource("1_m33ik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Canon_turret_upgrade_area"]
+position = Vector2(13, -12)
+shape = SubResource("RectangleShape2D_pu4rq")
+
+[connection signal="mouse_entered" from="Canon_turret_upgrade_area" to="Canon_turret_upgrade_area" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Canon_turret_upgrade_area" to="Canon_turret_upgrade_area" method="_on_mouse_exited"]

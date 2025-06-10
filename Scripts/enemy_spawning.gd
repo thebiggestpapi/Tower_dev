@@ -16,7 +16,7 @@ var wave_number = 0
 func _ready():
 	wave_timer.start()
 
-func _on_wave_timer_timeout() -> void:
+func _on_wave_timer_timeout() -> void: 
 	wave_number += 1
 	wave_calling()
 
@@ -40,7 +40,7 @@ var wave_data = {
 			{"scene": enemy1_scene, "spawn_points": [
 				l, l, l,]},
 			{"scene": enemy2_scene, "spawn_points": [
-				l]},
+				]},
 			{"scene": enemy3_scene, "spawn_points": [
 				]},
 		]

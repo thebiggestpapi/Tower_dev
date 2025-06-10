@@ -10,7 +10,7 @@ func _on_mouse_entered() -> void:
 func _process(delta: float) -> void:
 	if clickable:
 		if Input.is_action_just_pressed("lmb"):
-			print("upgraded")
+			print("upgraded_archer")
 			upgrade_turret()
 
 func _on_mouse_exited() -> void:
@@ -19,6 +19,8 @@ func _on_mouse_exited() -> void:
 func upgrade_turret():
 	var get_arrow_cd = get_tree().root.get_node(
 	"Main/Turrets/Archer_turret/Archer_turret_area").arrow_shoot_cd
-	get_arrow_cd.wait_time -= 0.05
+	if get_arrow_cd.wait_time > 0.2:
+		get_arrow_cd.wait_time -= 0.05
+	else: return
 	arrow_speed += 0.5
 	arrow_damage += 0.5

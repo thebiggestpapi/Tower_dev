@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://btfd2ynn1diej" path="res://Scripts/Enemies/enemy1_area.gd" id="3_kvx5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8rwmy"]
-radius = 88.0227
+radius = 60.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rwmy"]
 size = Vector2(50, 86)
