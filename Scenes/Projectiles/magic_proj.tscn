@@ -4,11 +4,13 @@
 [ext_resource type="Script" uid="uid://qatn4t8fvqm6" path="res://Scripts/Projectiles/magic_proj_area.gd" id="1_brorg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01f0g"]
+radius = 35.0
 
 [node name="Magic_proj_area" type="Area2D" groups=["Magic"]]
 script = ExtResource("1_brorg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -3)
 shape = SubResource("CircleShape2D_01f0g")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

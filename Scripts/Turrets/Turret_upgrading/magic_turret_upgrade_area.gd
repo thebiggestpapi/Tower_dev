@@ -1,8 +1,8 @@
 extends Area2D
 
 var clickable = false
-var arrow_speed: float = 320
-var arrow_damage: float = 0
+var magic_speed: float = 320
+var magic_damage: float = 0
 
 func _on_mouse_entered() -> void:
 	clickable = true
@@ -11,7 +11,7 @@ func _on_mouse_entered() -> void:
 func _process(delta: float) -> void:
 	if clickable:
 		if Input.is_action_just_pressed("lmb"):
-			print("upgraded_archer")
+			print("upgraded_magic")
 			upgrade_turret()
 
 func _on_mouse_exited() -> void:
@@ -19,10 +19,10 @@ func _on_mouse_exited() -> void:
 	Input.set_default_cursor_shape(0)
 
 func upgrade_turret():
-	var get_arrow_cd = get_tree().root.get_node(
-	"Main/Turrets/Archer_turret/Archer_turret_area").arrow_shoot_cd
-	if get_arrow_cd.wait_time > 0.2:
-		get_arrow_cd.wait_time -= 0.05
+	var get_magic_cd = get_tree().root.get_node(
+	"Main/Turrets/Magic_turret/Magic_turret_area").magic_shoot_cd
+	if get_magic_cd.wait_time > 0.2:
+		get_magic_cd.wait_time -= 0.05
 	else: return
-	arrow_speed += 0.5
-	arrow_damage += 0.5
+	magic_speed += 0.5
+	magic_damage += 0.5

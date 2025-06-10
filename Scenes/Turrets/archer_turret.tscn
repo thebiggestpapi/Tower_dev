@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://co4e8xex2pthg"]
+[gd_scene load_steps=5 format=3 uid="uid://co4e8xex2pthg"]
 
 [ext_resource type="Texture2D" uid="uid://dsrxlb8s151gj" path="res://Sprites/Turrets/Tower_defense_archer_psd.png" id="1_hyh6d"]
 [ext_resource type="Script" uid="uid://cydnrtn76cnnt" path="res://Scripts/Turrets/archer_turret_area.gd" id="2_hyh6d"]
-[ext_resource type="Script" uid="uid://dn8khqi5mhnp0" path="res://Scripts/Turrets/Turret_upgrading/archer_turret_ui.gd" id="3_3on6l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hyh6d"]
 size = Vector2(890, 334.118)
@@ -30,7 +29,6 @@ shape = SubResource("RectangleShape2D_hyh6d")
 [node name="Arrow_shoot_cd" type="Timer" parent="."]
 
 [node name="Archer_turret_UI" type="Area2D" parent="."]
-script = ExtResource("3_3on6l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Archer_turret_UI"]
 position = Vector2(-8, -22)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cucnr7va3ayud"]
+
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_aob2v"]
+[ext_resource type="Script" uid="uid://d3o455tlttpar" path="res://Scripts/Turrets/Turret_upgrading/magic_turret_upgrade_area.gd" id="1_g3vh6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snp4p"]
+size = Vector2(44, 37)
+
+[node name="Magic_turret_upgrade" type="Node2D"]
+position = Vector2(-50, -114)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11.5, -8.5)
+scale = Vector2(0.367188, 0.320313)
+texture = ExtResource("1_aob2v")
+
+[node name="Magic_turret_upgrade_area" type="Area2D" parent="."]
+script = ExtResource("1_g3vh6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magic_turret_upgrade_area"]
+position = Vector2(12, -8.5)
+shape = SubResource("RectangleShape2D_snp4p")
+
+[connection signal="mouse_entered" from="Magic_turret_upgrade_area" to="Magic_turret_upgrade_area" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Magic_turret_upgrade_area" to="Magic_turret_upgrade_area" method="_on_mouse_exited"]

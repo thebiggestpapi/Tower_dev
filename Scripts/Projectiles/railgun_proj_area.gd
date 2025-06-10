@@ -1,17 +1,25 @@
 extends Area2D
 
-@export var railgun_dmg = 6
+@onready var get_turret_upgr = get_tree().root.get_node(
+"Main/Turrets/Railgun_turret/Railgun_turret_upgrade/Railgun_turret_upgrade_area")
+@onready var railgun_speed = get_turret_upgr.railgun_speed
 
+var last_known_position: Vector2
 var target: Area2D
 
-func set_target_railgun(t):
+func set_target_arrow(t):
 	target = t
 
 func _physics_process(delta: float) -> void:
-	if target:
-		global_position = global_position.move_toward(target.global_position, 20)
+	if target and is_instance_valid(target):
+		last_known_position = target.global_position
+		global_position = global_position.move_toward(
+			last_known_position, railgun_speed * delta)
 	else:
-		railgun_destroyed()
+		global_position = global_position.move_toward(
+			last_known_position, railgun_speed * delta)
+	railgun_destroyed()
 
 func railgun_destroyed():
-	queue_free()
+	if global_position.is_equal_approx(last_known_position):
+		self.queue_free()

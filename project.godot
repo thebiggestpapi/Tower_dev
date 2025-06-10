@@ -27,8 +27,9 @@ Tower_area=""
 Enemy=""
 Arrow=""
 Magic=""
-Canon=""
 Railgun=""
+shootable=""
+Canon=""
 
 [input]
 
