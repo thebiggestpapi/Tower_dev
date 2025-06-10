@@ -2,7 +2,7 @@ extends Area2D
 
 var clickable = false
 var railgun_speed: float = 320
-var railgun_damage: float = 6
+var railgun_damage: float = 0
 
 func _on_mouse_entered() -> void:
 	clickable = true

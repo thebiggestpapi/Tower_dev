@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3g8fds4842j"]
+
+[ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="1_k57a5"]
+[ext_resource type="Script" uid="uid://c8xeu6nmv722k" path="res://Scripts/Projectiles/canon_explosion_animation.gd" id="1_qaf6x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnfql"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k57a5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_k57a5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_k57a5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="canon_explosion_animation" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dnfql")
+autoplay = "default"
+script = ExtResource("1_qaf6x")

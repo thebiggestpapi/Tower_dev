@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpfrarx5n8r8w"]
+[gd_scene load_steps=4 format=3 uid="uid://cpfrarx5n8r8w"]
 
+[ext_resource type="Script" uid="uid://cehnixxdud544" path="res://Scripts/Projectiles/canon_proj_explosion.gd" id="1_cyjql"]
 [ext_resource type="Texture2D" uid="uid://l7yvpdfs041t" path="res://icon.svg" id="2_cyjql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cyjql"]
 size = Vector2(112, 20)
 
 [node name="Canon_proj_explosion" type="Area2D" groups=["Canon_explosion"]]
+script = ExtResource("1_cyjql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1.13687e-13, -4.76837e-07)
@@ -14,5 +16,4 @@ texture = ExtResource("2_cyjql")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6.77626e-21, -2.84217e-14)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_cyjql")

@@ -3,6 +3,7 @@ extends Area2D
 "Main/Turrets/Canon_turret/Canon_turret_upgrade/Canon_turret_upgrade_area")
 @onready var canon_speed = get_turret_upgr.canon_speed
 var canon_explosion = preload("res://Scenes/Projectiles/canon_proj_explosion.tscn")
+var canon_explosion_animation = preload("res://Scenes/Projectiles/canon_explosion_animation.tscn")
 @onready var projectiles = get_tree().get_root().get_node("Main/Projectiles")
 
 var last_known_position: Vector2
@@ -31,4 +32,9 @@ func explosion(last_known_position):
 		var explosion_instance = canon_explosion.instantiate()
 		projectiles.add_child(explosion_instance)
 		explosion_instance.global_position = last_known_position
-		projectiles.remove_child(explosion_instance)
+		explosion_anim()
+		
+func explosion_anim():
+	var explosion_animation = canon_explosion_animation.instantiate()
+	projectiles.add_child(explosion_animation)
+	explosion_animation.global_position = last_known_position
