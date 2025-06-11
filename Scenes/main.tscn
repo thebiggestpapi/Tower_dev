@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bltod5ln0pmf6"]
+[gd_scene load_steps=12 format=3 uid="uid://bltod5ln0pmf6"]
 
 [ext_resource type="PackedScene" uid="uid://c2mnnavogut7o" path="res://Scenes/Turrets/canon_turret.tscn" id="3_344ge"]
 [ext_resource type="PackedScene" uid="uid://byx00d3i0pve7" path="res://Scenes/Turrets/canon_turret_upgrade.tscn" id="3_hptm8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1v673kby0366" path="res://Scenes/enemy_spawning.tscn" id="7_6iyac"]
 [ext_resource type="PackedScene" uid="uid://cucnr7va3ayud" path="res://Scenes/Turrets/magic_turret_upgrade.tscn" id="7_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://di3r413hmx84p" path="res://Scenes/Turrets/railgun_turret_upgrade.tscn" id="9_6iyac"]
+[ext_resource type="PackedScene" uid="uid://dtf3wxgetoc5g" path="res://Scenes/Gold/gold_system.tscn" id="11_d1ilt"]
 
 [node name="Main" type="Node2D"]
 
@@ -43,3 +44,7 @@ position = Vector2(1093, 564)
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Environment" parent="." instance=ExtResource("7_6bp64")]
+
+[node name="Gold" type="Node2D" parent="."]
+
+[node name="Gold_system" parent="Gold" instance=ExtResource("11_d1ilt")]

@@ -55,8 +55,10 @@ func enemy2_attack():
 	tower.take_damage_enemy1()
 	enemy_2_attack_cd.start()
 
-func _on_enemy_1_attack_cd_timeout() -> void:
+func _on_enemy_2_attack_cd_timeout() -> void:
 	enemy2_attack()
 
 func enemy_death():
+	var gold_reward2 = 70
+	SignalBus.enemy2_died.emit(gold_reward2)
 	enemy_2.queue_free()

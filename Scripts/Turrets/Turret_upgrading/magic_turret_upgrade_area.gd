@@ -2,7 +2,7 @@ extends Area2D
 
 var clickable = false
 var magic_speed: float = 320
-var magic_damage: float = 0
+var magic_damage: float = 2
 
 func _on_mouse_entered() -> void:
 	clickable = true

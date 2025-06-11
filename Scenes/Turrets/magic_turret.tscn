@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://chdj62d8ce5py" path="res://Scripts/Turrets/magic_turret_area.gd" id="2_8lk0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nub7y"]
-size = Vector2(797.647, 270)
+size = Vector2(770, 270)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8lk0f"]
 radius = 69.1158
@@ -20,7 +20,7 @@ texture = ExtResource("1_nub7y")
 script = ExtResource("2_8lk0f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magic_turret_area"]
-position = Vector2(3.99998, 138.5)
+position = Vector2(27.4999, 138.5)
 scale = Vector2(1.7, 1.7)
 shape = SubResource("RectangleShape2D_nub7y")
 

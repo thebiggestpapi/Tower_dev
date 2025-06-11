@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtf3wxgetoc5g"]
+
+[ext_resource type="Script" uid="uid://dcqhywv6sow4u" path="res://Scripts/Gold/gold_display.gd" id="1_0kqap"]
+
+[node name="Gold_system" type="Node2D"]
+z_index = 6
+
+[node name="Gold_display" type="CanvasLayer" parent="."]
+script = ExtResource("1_0kqap")
+
+[node name="Gold_count_text" type="Label" parent="Gold_display"]
+offset_left = 47.0
+offset_right = 87.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+vertical_alignment = 1

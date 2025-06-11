@@ -59,4 +59,6 @@ func _on_enemy_3_attack_cd_timeout() -> void:
 	enemy3_attack()
 
 func enemy_death():
+	var gold_reward3 = 25
+	SignalBus.enemy3_died.emit(gold_reward3)
 	enemy_3.queue_free()
