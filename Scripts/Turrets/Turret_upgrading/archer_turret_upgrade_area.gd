@@ -1,30 +1,31 @@
 extends Area2D
 
-var clickable = false
+var is_clickable = false
 var is_purchasable: bool
 var arrow_speed: float = 320
 var arrow_damage: float = 2
-@onready var upgrade_cost: float = 50 #temporary
+@onready var upgrade_cost_archer: float = 50 #temporary
 
 signal upgraded_archer(upgrade_cost)
 
 func _on_mouse_entered() -> void:
-	clickable = true
+	is_clickable = true
 	Input.set_default_cursor_shape(2)
 
 func _process(delta: float) -> void:
 	var current_gold = get_tree().root.get_node("Main/Gold/Gold_system/Gold_display").gold_count
-	if current_gold >= upgrade_cost:
+	if current_gold >= upgrade_cost_archer:
 		is_purchasable = true
 	else:
 		is_purchasable = false
-	if clickable:
+	if is_clickable:
 		if Input.is_action_just_pressed("lmb") and is_purchasable:
 			print("upgraded_archer")
 			upgrade_turret(current_gold)
+			
 
 func _on_mouse_exited() -> void:
-	clickable = false
+	is_clickable = false
 	Input.set_default_cursor_shape(0)
 
 func upgrade_turret(current_gold):
@@ -36,6 +37,6 @@ func upgrade_turret(current_gold):
 	arrow_speed += 0.5
 	arrow_damage += 0.5
 	
-	emit_signal("upgraded_archer", upgrade_cost)
-	upgrade_cost = snapped(upgrade_cost * 1.2, 0)
-	print(upgrade_cost)
+	emit_signal("upgraded_archer", upgrade_cost_archer)
+	upgrade_cost_archer = snapped(upgrade_cost_archer * 1.2, 0)
+	print(upgrade_cost_archer)

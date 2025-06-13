@@ -5,6 +5,9 @@ extends Area2D
 @onready var is_shootable_archer = false
 @onready var is_shootable_railgun = false
 
+func _ready():
+	print(HEALTH)
+
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Tower_area"):
 		enemy1_attack()
