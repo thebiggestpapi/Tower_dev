@@ -4,11 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://cw6bapo42p3op" path="res://Sprites/Projectiles/Tower_defense_railgun_proj_psd.png" id="1_f4x6d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f4x6d"]
+radius = 14.0357
 
 [node name="Railgun_proj_area" type="Area2D" groups=["Railgun"]]
 script = ExtResource("1_6mbfb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -4)
 shape = SubResource("CircleShape2D_f4x6d")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]

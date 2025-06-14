@@ -26,6 +26,7 @@ scale = Vector2(1.7, 1.7)
 shape = SubResource("RectangleShape2D_upq88")
 
 [node name="Railgun_shoot_cd" type="Timer" parent="."]
+wait_time = 2.0
 
 [node name="Railgun_turret_UI" type="Area2D" parent="."]
 position = Vector2(29, -2)

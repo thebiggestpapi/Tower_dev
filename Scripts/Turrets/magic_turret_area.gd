@@ -4,13 +4,14 @@ var magic = preload("res://Scenes/Projectiles/magic_proj.tscn")
 var current_target: Area2D
 @onready var magic_shoot_cd: Timer = $"../Magic_shoot_cd"
 var is_on_cd: bool = false
-
+@onready var get_unlock_status = get_tree().root.get_node(
+	"Main/Turrets/Magic_turret/Magic_turret_upgrade/Magic_turret_upgrade_area")
 var enemy_prio_order: Array = []
 
 func _physics_process(delta: float) -> void:
 	if current_target != null and is_instance_valid(current_target):
 		var target_position = current_target.global_position
-		if !is_on_cd:
+		if !is_on_cd and get_unlock_status.is_unlocked == true:
 			magic_shoot()
 
 func _on_area_entered(area: Area2D) -> void:

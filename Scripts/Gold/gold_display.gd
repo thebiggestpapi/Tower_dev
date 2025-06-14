@@ -1,7 +1,7 @@
 extends CanvasLayer
 @onready var gold_count_text: Label = $Gold_count_text
 
-var gold_count = 0
+var gold_count = 200
 
 func _ready():
 	gold_count_text.text = str(gold_count)
@@ -18,6 +18,11 @@ func _ready():
 	canon.upgraded_canon.connect(_on_upgraded_canon)
 	railgun.upgraded_railgun.connect(_on_upgraded_railgun)
 	magic.upgraded_magic.connect(_on_upgraded_magic)
+	
+	archer.unlocked_archer.connect(_on_unlocked_archer)
+	canon.unlocked_canon.connect(_on_unlocked_canon)
+	railgun.unlocked_railgun.connect(_on_unlocked_railgun)
+	magic.unlocked_magic.connect(_on_unlocked_magic)
 
 func _process(delta: float) -> void:
 	gold_count_text.text = str(gold_count)
@@ -37,3 +42,12 @@ func _on_upgraded_railgun(upgrade_cost_railgun):
 	gold_count -= upgrade_cost_railgun
 func _on_upgraded_magic(upgrade_cost_magic):
 	gold_count -= upgrade_cost_magic
+
+func _on_unlocked_archer(unlock_cost_archer):
+	gold_count -= unlock_cost_archer
+func _on_unlocked_canon(unlock_cost_canon):
+	gold_count -= unlock_cost_canon
+func _on_unlocked_railgun(unlock_cost_railgun):
+	gold_count -= unlock_cost_railgun
+func _on_unlocked_magic(unlock_cost_magic):
+	gold_count -= unlock_cost_magic

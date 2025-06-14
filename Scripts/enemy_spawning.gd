@@ -10,10 +10,11 @@ var r = Vector2(2220, 900) #spawn_point_right
 var fl = Vector2(-300, 800)
 var fr = Vector2(2220, 800)
 
-var wave_number = 0
+var wave_number = 1
 @onready var wave_timer: Timer = $Wave_timer
 
 func _ready():
+	wave_calling()
 	wave_timer.start()
 
 func _on_wave_timer_timeout() -> void: 
@@ -32,7 +33,7 @@ func spawn_wave(wave_info):
 			var enemy_instance = enemy_scene.instantiate()
 			enemies.add_child(enemy_instance)
 			enemy_instance.global_position = spawn
-			await get_tree().create_timer(1.1).timeout
+			await get_tree().create_timer(1.5).timeout
 
 var wave_data = {
 	1: {
@@ -40,7 +41,7 @@ var wave_data = {
 			{"scene": enemy1_scene, "spawn_points": [
 				l, l, l,]},
 			{"scene": enemy2_scene, "spawn_points": [
-				]},
+				l, r]},
 			{"scene": enemy3_scene, "spawn_points": [
 				]},
 		]
@@ -63,7 +64,6 @@ var wave_data = {
 				]},
 		]
 	},
-
 	4: {"enemies": [
 			{"scene": enemy1_scene, "spawn_points": [
 				l, l, r, r, r, l, r, l, r,l,l,l,r,r,r]},
@@ -215,6 +215,276 @@ var wave_data = {
 				]},
 			{"scene": enemy3_scene, "spawn_points": [
 				]},
-		]
-	}
+			]
+		},
+	21: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	22: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	23: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	24: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	25: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	26: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	27: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	28: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	29: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	30: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	31: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	32: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	33: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	34: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	35: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	36: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	37: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	38: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	39: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	40: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	41: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	42: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	43: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	44: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	45: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	46: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	47: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	48: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	49: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+				]
+		},
+	50: {"enemies": [
+			{"scene": enemy1_scene, "spawn_points": [
+				l, l, r, r, r,]},
+			{"scene": enemy2_scene, "spawn_points": [
+				]},
+			{"scene": enemy3_scene, "spawn_points": [
+				]},
+			]
+	},
 }

@@ -1,12 +1,13 @@
 extends Area2D
 @onready var enemy_1_attack_cd: Timer = $"../Enemy1_attack_cd"
 @onready var enemy_1: CharacterBody2D = $".."
-@export var HEALTH = 15
+@export var HEALTH = 30
 @onready var is_shootable_archer = false
 @onready var is_shootable_railgun = false
 
 func _ready():
-	print(HEALTH)
+	var get_wave_number = get_tree().root.get_node("Main/Enemy_spawning")
+	HEALTH = HEALTH + get_wave_number.wave_number * 2
 
 func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Tower_area"):
@@ -62,6 +63,6 @@ func _on_enemy_1_attack_cd_timeout() -> void:
 	enemy1_attack()
 
 func enemy_death():
-	var gold_reward1 = 15
+	var gold_reward1 = 35
 	SignalBus.enemy1_died.emit(gold_reward1)
 	enemy_1.queue_free()

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 80
+@export var SPEED = 40
 var dir_number: int
 
 func _ready() -> void:

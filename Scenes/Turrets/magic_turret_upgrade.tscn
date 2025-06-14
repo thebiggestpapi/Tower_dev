@@ -21,5 +21,18 @@ script = ExtResource("1_g3vh6")
 position = Vector2(12, -8.5)
 shape = SubResource("RectangleShape2D_snp4p")
 
+[node name="Turret_info_magic" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Turret_info_magic"]
+position = Vector2(786, 544)
+texture = ExtResource("1_aob2v")
+
+[node name="Label" type="Label" parent="Turret_info_magic"]
+offset_left = 786.0
+offset_top = 335.0
+offset_right = 826.0
+offset_bottom = 358.0
+
 [connection signal="mouse_entered" from="Magic_turret_upgrade_area" to="Magic_turret_upgrade_area" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Magic_turret_upgrade_area" to="Magic_turret_upgrade_area" method="_on_mouse_exited"]
