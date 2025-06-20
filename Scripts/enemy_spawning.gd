@@ -33,7 +33,7 @@ func spawn_wave(wave_info):
 			var enemy_instance = enemy_scene.instantiate()
 			enemies.add_child(enemy_instance)
 			enemy_instance.global_position = spawn
-			await get_tree().create_timer(1.5).timeout
+			await get_tree().create_timer(1).timeout
 
 var wave_data = {
 	1: {
@@ -41,7 +41,7 @@ var wave_data = {
 			{"scene": enemy1_scene, "spawn_points": [
 				l, l, l,]},
 			{"scene": enemy2_scene, "spawn_points": [
-				l, r]},
+				]},
 			{"scene": enemy3_scene, "spawn_points": [
 				]},
 		]

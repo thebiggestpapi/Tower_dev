@@ -48,5 +48,5 @@ func upgrade_turret(current_gold):
 	arrow_damage += 8
 	
 	emit_signal("upgraded_archer", upgrade_cost_archer)
-	upgrade_cost_archer = snapped(upgrade_cost_archer * 1.2, 0)
+	upgrade_cost_archer = snapped(upgrade_cost_archer * 1.8, 0)
 	print(upgrade_cost_archer)

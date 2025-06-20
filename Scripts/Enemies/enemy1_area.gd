@@ -17,6 +17,7 @@ func _on_area_entered(area: Area2D) -> void:
 		get_hit_arrow()
 	elif area.is_in_group("Railgun") and is_instance_valid(area) and is_shootable_railgun:
 		get_hit_railgun()
+		print("got hit")
 	elif area.is_in_group("Magic") and is_instance_valid(area):
 		get_hit_magic()
 	elif area.is_in_group("Canon_explosion") and is_instance_valid(area):

@@ -51,5 +51,5 @@ func upgrade_turret(current_gold):
 	railgun_damage += 15
 	
 	emit_signal("upgraded_railgun", upgrade_cost_railgun)
-	upgrade_cost_railgun = snapped(upgrade_cost_railgun * 1.2, 0)
+	upgrade_cost_railgun = snapped(upgrade_cost_railgun * 1.8, 0)
 	print(upgrade_cost_railgun)

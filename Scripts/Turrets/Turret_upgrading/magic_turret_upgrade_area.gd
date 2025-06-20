@@ -48,5 +48,5 @@ func upgrade_turret(current_gold):
 	magic_damage += 8
 	
 	emit_signal("upgraded_magic", upgrade_cost_magic)
-	upgrade_cost_magic = snapped(upgrade_cost_magic * 1.2, 0)
+	upgrade_cost_magic = snapped(upgrade_cost_magic * 1.8, 0)
 	print(upgrade_cost_magic)

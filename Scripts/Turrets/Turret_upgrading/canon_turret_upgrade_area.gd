@@ -45,8 +45,8 @@ func upgrade_turret(current_gold):
 		get_canon_cd.wait_time -= 0.1
 	else: return
 	canon_speed += 15
-	canon_damage += 10
+	canon_damage += 15
 	
 	emit_signal("upgraded_canon", upgrade_cost_canon)
-	upgrade_cost_canon = snapped(upgrade_cost_canon * 1.2, 0)
+	upgrade_cost_canon = snapped(upgrade_cost_canon * 1.8, 0)
 	print(upgrade_cost_canon)
