@@ -49,7 +49,6 @@ func enemy_killed(area):
 	enemy_prio_order.pop_front()
 	if enemy_prio_order.size() > 0 and is_instance_valid(enemy_prio_order[0]):
 		current_target = enemy_prio_order[0]
-		await get_tree().create_timer(0.1).timeout
 		current_target.is_shootable_archer = true
 	else:
 		return
